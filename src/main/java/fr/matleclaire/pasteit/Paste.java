@@ -1,10 +1,13 @@
 package fr.matleclaire.pasteit;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 
 public class Paste {
 
+    @Id
     private String id;
     private String label;
     private String text;
@@ -57,5 +60,13 @@ public class Paste {
     @Override
     public String toString() {
         return "Paste {" + "id=" + id + ", createdDate ="+ createdDate +",  label=" + label + "}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Paste)
+            return this.getId().equals(((Paste)obj).getId());
+        else
+            return false;
     }
 }

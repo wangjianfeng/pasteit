@@ -1,0 +1,5 @@
+mongo.user=
+mongo.password=
+mongo.host=dharma.mongohq.com
+mongo.port=10081
+mongo.dbname=pasteit

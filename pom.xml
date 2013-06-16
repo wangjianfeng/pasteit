@@ -17,6 +17,7 @@
         <fest-assert.version>1.4</fest-assert.version>
         <log4j.version>1.2.16</log4j.version>
         <jetty.version>8.1.8.v20121106</jetty.version>
+        <jackson.version>2.0.4</jackson.version>
     </properties>
 
     <dependencies>
@@ -44,7 +45,17 @@
             <version>${org.springframework.version}</version>
         </dependency>
 
-
+        <!-- Json via Jackson 2.0 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 
         <!-- Logging -->
         <dependency>
@@ -78,8 +89,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- Test -->
         <dependency>
             <groupId>org.easytesting</groupId>
             <artifactId>fest-assert</artifactId>

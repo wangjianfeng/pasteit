@@ -15,6 +15,7 @@ public class Paste {
     }
 
     public Paste(String id, String label, String text) {
+        this.id = id;
         this.label = label;
         this.text = text;
         this.createdDate = new Date();

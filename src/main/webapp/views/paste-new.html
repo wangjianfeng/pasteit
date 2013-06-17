@@ -1,0 +1,24 @@
+<h4>New</h4>
+<form>
+    <fieldset>
+        <div class="row collapse">
+            <div class="large-2 columns">
+                <label class="inline">Description</label>
+            </div>
+            <div class="large-10 columns">
+                <input id="label" type="text" ng-model="paste.label" placeholder="Describe your text here">
+            </div>
+        </div>
+        <div class="row collapse">
+            <div class="large-2 columns">
+                <label class="inline">Content</label>
+            </div>
+            <div class="large-10 columns">
+                <textarea rows="15" style="height: auto;" ng-model="paste.text"></textarea>
+            </div>
+        </div>
+        <div class="row collapse right">
+            <button class="radius button" type="submit" ng-click="addPaste(paste)">Submit</button>
+        </div>
+    </fieldset>
+</form>

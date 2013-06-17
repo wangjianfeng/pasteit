@@ -10,12 +10,44 @@
         <script src="js/app/application.js"></script>
     </head>
     <body ng-app="pasteApp">
+
         <div class="row">
             <div class="large-12 columns">
+                <nav class="top-bar" style="">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1>
+                                <a href="#">
+                                   Paste it !
+                                </a>
+                            </h1>
+                        </li>
+                    </ul>
+                   <!-- <section class="top-bar-section">
+
+                        <ul class="right">
+                            <li class="search">
+                                <form>
+                                    <input type="search">
+                                </form>
+                            </li>
+
+                            <li class="has-button">
+                                <a href="#" class="small button">Search</a>
+                            </li>
+                        </ul>
+                    </section>-->
+                </nav>
+
                 <h2>Welcome to Paste-it!</h2>
                 <p>This is a sample application using SpringMVC, MongoDB, AngularJS and Foundation, a front-end framework.</p>
                 <hr />
             </div>
+        </div>
+
+        <div class="row">
+            <div class="large-12 columns" ng-view />
+
         </div>
     </body>
 </html>

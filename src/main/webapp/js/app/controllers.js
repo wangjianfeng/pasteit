@@ -36,3 +36,13 @@ pasteApp.controller("pasteController" ,function ($scope, $location, Paste, mySha
 });
 
 
+pasteApp.controller("pasteDetailController" ,function ($scope, $routeParams, Paste) {
+
+    var pasteId = $routeParams.id;
+
+    Paste.fetchOne(pasteId).success(function(paste){
+        $scope.paste = paste;
+    });
+
+
+});

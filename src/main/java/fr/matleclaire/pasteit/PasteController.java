@@ -2,10 +2,13 @@ package fr.matleclaire.pasteit;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 public class PasteController {
@@ -13,24 +16,24 @@ public class PasteController {
     @Autowired
     private PasteRepository pasteRepository;
 
-    @RequestMapping(value = "/", produces = "application/json")
+
+    @RequestMapping(value="last", method = RequestMethod.GET)
     @ResponseBody
-    public Paste hello() {
-        return new Paste("1-test", "hello", "world");
+    public Page<Paste> getLast() {
+        Pageable pageable = new PageRequest(0,5, Sort.Direction.DESC, "createdDate");
+        return pasteRepository.findAll(pageable);
     }
 
-
-    @RequestMapping(value="createOne", method = RequestMethod.GET)
+    @RequestMapping(value="{id}", method = RequestMethod.GET)
     @ResponseBody
-    public void createOne() {
-        Paste p = new Paste("1", "hello", "world");
-        pasteRepository.save(p);
+    public Paste getPaste(@PathVariable String id) {
+        return pasteRepository.findOne(id);
     }
 
-    @RequestMapping(value="test", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    public List<Paste> getAll() {
-        return pasteRepository.findAll();
+    public Paste addPaste(@RequestBody Paste p) {
+        return pasteRepository.save(p);
     }
 
 

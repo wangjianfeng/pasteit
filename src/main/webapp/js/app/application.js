@@ -7,5 +7,9 @@ pasteApp.config(function($routeProvider) {
         .when('/paste/new', {
             templateUrl: 'views/paste-new.html',
             controller : 'newPasteController'
-        });
+        })
+        .otherwise({
+            redirectTo: '/paste/new'
+        }
+        );
 });

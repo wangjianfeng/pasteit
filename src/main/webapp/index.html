@@ -49,8 +49,16 @@
         </div>
 
         <div class="row">
-            <div class="large-12 columns" ng-view />
+            <div class="large-8 columns" ng-view>
+            </div>
 
+            <div class="large-4 columns" ng-controller="pasteController">
+                <h4>Last shared contents</h4>
+                <div class="panel  button secondary text-left large-10" ng-repeat="paste in lastPasteList" ng-click="viewPaste(paste.id)">
+                    <h6>{{paste.label}}</h6>
+                    <p class="">{{paste.createdDate | date:'short'}}</p>
+                </div>
+            </div>
         </div>
     </body>
 </html>

@@ -15,5 +15,22 @@ pasteApp.factory("Paste", function ($http) {
             return $http.post(API_URI, paste);
         }
     };
-
 });
+
+pasteApp.factory('mySharedService', function($rootScope) {
+    var sharedService = {};
+
+    sharedService.paste = '';
+
+    sharedService.prepForBroadcast = function(paste) {
+        this.paste = paste;
+        this.broadcastItem();
+    };
+
+    sharedService.broadcastItem = function() {
+        $rootScope.$broadcast('handleBroadcast');
+    };
+
+    return sharedService;
+});
+

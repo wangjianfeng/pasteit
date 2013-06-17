@@ -8,6 +8,10 @@ pasteApp.config(function($routeProvider) {
             templateUrl: 'views/paste-new.html',
             controller : 'newPasteController'
         })
+        .when('/paste/:id', {
+            templateUrl: 'views/paste-detail.html',
+            controller : 'pasteDetailController'
+        })
         .otherwise({
             redirectTo: '/paste/new'
         }

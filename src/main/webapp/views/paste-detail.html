@@ -1,3 +1,7 @@
-<h4>{{paste.label}}</h4> <i> {{paste.createdDate | date:'short'}}</i>
+<h4 class="subheader" style="text-overflow: ellipsis ; overflow: hidden">{{paste.label}}</h4>
+<span class="radius secondary label"> {{paste.createdDate | date:'short'}}</span>
 </br>
-<pre>{{paste.text}}</pre>
+</br>
+<div class="panel" style="overflow:auto">
+    {{paste.text}}
+</div>
